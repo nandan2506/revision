@@ -10,17 +10,18 @@
 
 👉 So NodeJS doesn’t block while waiting — it can serve thousands of requests concurrently.
 
+----
 ## What is JWT (JSON Web Token)?
 
 - A compact, URL-safe token format used for authentication & authorization.
 
 - Structure:
-```
+```js
 Header.Payload.Signature
 ```
 
 Example:
-```
+```js
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
 eyJ1c2VySWQiOjEyMywiZW1haWwiOiJuYW5kYW4ifQ.
 h1D9XrC7ZqNnZTyV9OB7d3SGBm5b8t8XYG
@@ -35,3 +36,5 @@ h1D9XrC7ZqNnZTyV9OB7d3SGBm5b8t8XYG
 Use case:
 
 - After login → server generates JWT → sends to client → client stores in localStorage/cookie → sends with each request → server verifies & grants access.
+
+---
