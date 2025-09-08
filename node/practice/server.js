@@ -8,7 +8,7 @@ const PORT = 8000
 
 app.use(express.json())
 app.use(logger)
-app.use(cors)
+app.use(cors())
 
 app.use("/user", userRoutes)
 
