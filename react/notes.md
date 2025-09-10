@@ -151,5 +151,55 @@ function App() {
   );
 }
 ```
-
 ---
+
+## Batching in React
+### 📌 Definition
+
+Batching means React groups multiple state updates into a single re-render, instead of re-rendering the component for each update separately.
+
+This reduces unnecessary DOM updates and makes React apps much faster.
+
+### 📌 Example without batching (conceptually)
+setCount(count + 1);
+setName("Nandan");
+
+
+👉 If React didn’t batch these, it would:
+
+1. Re-render after setCount
+
+2. Re-render again after setName
+
+That’s two re-renders.
+
+### 📌 Example with batching (React behavior)
+setCount(count + 1);
+setName("Nandan");
+
+
+👉 React batches them into one update cycle → so only one re-render happens.
+
+### 📌 Automatic Batching (React 18+)
+
+In React 18 and above, batching is more powerful:
+- State updates inside Promises, setTimeout, fetch, or event handlers are batched automatically.
+
+Example:
+```jsx
+setTimeout(() => {
+  setCount(c => c + 1);
+  setName("Nandan");
+  // ✅ Both are batched into one render (React 18+)
+}, 1000);
+```
+
+In older React (<18), only updates inside React events (like onClick) were batched, but not inside setTimeout or Promises.
+
+### 📌 Why Batching is Important
+
+- Saves performance by reducing unnecessary re-renders.
+- Keeps UI updates smooth and efficient.
+
+### ⚡ So in short:
+Batching in React = grouping multiple state updates into one re-render.
